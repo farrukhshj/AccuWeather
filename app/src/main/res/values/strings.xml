@@ -1,0 +1,6 @@
+<resources>
+    <string name="app_name">AccuWeather</string>
+    <string name="add_location">Add Location</string>
+    <string name="add_location_prompt_message">Enter city name or zip code</string>
+    <string name="delete">DELETE</string>
+</resources>
