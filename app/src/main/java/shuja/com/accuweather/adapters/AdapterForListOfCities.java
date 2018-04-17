@@ -15,8 +15,8 @@ import shuja.com.accuweather.entity.currentweather.CurrentWeatherEntity;
 
 
 public class AdapterForListOfCities extends RecyclerView.Adapter<AdapterForListOfCities.ViewHolder> {
-    private List<CurrentWeatherEntity> mCurrentWeatherEntity;
-    private RecyclerViewClickListener mListener;
+    public List<CurrentWeatherEntity> mCurrentWeatherEntity;
+    public RecyclerViewClickListener mListener;
 
     public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
         public ConstraintLayout viewBackground, viewForeground;

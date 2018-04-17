@@ -4,10 +4,6 @@ import android.os.AsyncTask;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 
-import java.util.List;
-
-import shuja.com.accuweather.entity.currentweather.CurrentWeatherEntity;
-
 
 public class Task<T> extends AsyncTask<Object, Void, T> {
 
@@ -40,7 +36,7 @@ public class Task<T> extends AsyncTask<Object, Void, T> {
     }
 
     public interface RunInBackground<T> {
-        List<CurrentWeatherEntity> runInBackground() throws Exception;
+        T runInBackground() throws Exception;
     }
 
     public void execute() {

@@ -17,18 +17,18 @@ public class HomeActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
 
-        if(findViewById(R.id.fl_fragment_container) != null){
-            if(savedInstanceState != null){
+        if (findViewById(R.id.fl_fragment_container) != null) {
+            if (savedInstanceState != null) {
                 return;
             }
             FragmentListOfCities fragmentListOfCities = new FragmentListOfCities();
             fragmentListOfCities.setArguments(getIntent().getExtras());
-            getSupportFragmentManager().beginTransaction().add(R.id.fl_fragment_container, fragmentListOfCities,  fragmentListOfCities.getTag()).commit();
+            getSupportFragmentManager().beginTransaction().add(R.id.fl_fragment_container, fragmentListOfCities, fragmentListOfCities.getTag()).commit();
         }
     }
 
     @Override
-    public boolean onCreateOptionsMenu(Menu menu){
+    public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.main_menu, menu);
         return true;
     }

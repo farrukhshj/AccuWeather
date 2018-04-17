@@ -75,8 +75,15 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     public void deleteCity(String city) {
         SQLiteDatabase db = this.getWritableDatabase();
-        int status = db.delete(CurrentWeatherEntity.TABLE_NAME, CurrentWeatherEntity.COLUMN_CITY_NAME + "=?", new String[]{city});
+        int status = db.delete(CurrentWeatherEntity.TABLE_NAME, CurrentWeatherEntity.COLUMN_CITY_NAME + "=?", new String[]{city.toLowerCase()});
         Log.d("DatabaseHelper:", "Deleting from database returned status ="+ String.valueOf(status));
+        db.close();
+    }
+
+    public void deleteAllCities(){
+        SQLiteDatabase db = this.getWritableDatabase();
+        db.execSQL("DELETE FROM "+ CurrentWeatherEntity.TABLE_NAME);
+        Log.d("DatabaseHelper:", "Deleting all cities");
         db.close();
     }
 }

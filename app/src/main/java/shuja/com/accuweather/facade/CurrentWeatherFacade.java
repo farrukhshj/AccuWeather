@@ -18,10 +18,20 @@ public class CurrentWeatherFacade {
         new Task<>(new Task.RunInBackground<List<CurrentWeatherEntity>>() {
             @Override
             public List<CurrentWeatherEntity> runInBackground() throws NoNetworkException, WebException, IOException {
-                for(String city : listOfCity) {
+                for (String city : listOfCity) {
                     listOfCurrentWeather.add(CurrentWeatherService.getCurrentWeatherDataService(city, temperatureUnits));
                 }
-             return listOfCurrentWeather;
+                return listOfCurrentWeather;
+            }
+        }, callback).execute();
+    }
+
+    static public void checkValidCity(final String city, final Callback<String> callback) {
+        new Task<>(new Task.RunInBackground<String>() {
+            @Override
+            public String runInBackground() throws NoNetworkException, WebException, IOException {
+                String responseCode = CurrentWeatherService.checkValidCityService(city);
+                return responseCode;
             }
         }, callback).execute();
     }
